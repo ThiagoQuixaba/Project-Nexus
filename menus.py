@@ -2,6 +2,16 @@ import webPasswordsView, browsingVisitsHistoryView, browsingURLsHistoryView, pho
 from InquirerPy import inquirer
 from mylibrary.Style import Clean
 
+
+
+class Default:
+    @staticmethod
+    def select():
+        Clean()
+        return inquirer.select(message="Informe qual serviço deseja executar:", choices=["WebPasswordsView", "BrowsingVisitsHistoryView", "BrowsingURLsHistoryView", "PhotoMetadataView"]).execute()
+
+
+
 class WebPasswordsView:
     @staticmethod
     def list():
@@ -15,7 +25,7 @@ class WebPasswordsView:
             input()
             WebPasswordsView.export(passwords)
         else:
-            print("Nenhuma informação encontrada.")
+            input("Nenhuma informação encontrada.")
     
     @staticmethod
     def export(passwords):
@@ -57,7 +67,7 @@ class BrowsingURLsHistoryView:
             input()
             BrowsingURLsHistoryView.export(urls)
         else:
-            print("Nenhuma informação encontrada.")
+            input("Nenhuma informação encontrada.")
     
     @staticmethod
     def export(urls):
@@ -82,7 +92,7 @@ class PhotoMetadataView:
             input()
             PhotoMetadataView.export(metadatas)
         else:
-            print("Nenhuma informação encontrada.")
+            input("Nenhuma informação encontrada.")
     
     @staticmethod
     def export(metadatas):
