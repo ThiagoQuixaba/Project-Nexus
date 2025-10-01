@@ -19,9 +19,9 @@ class WebPasswordsView:
         passwords = webPasswordsView.getPasswords()
         if passwords != []:
             for i in passwords:
-                print(f"{'-' * 3}{'=' * 177}{'-' * 3}")
+                print(f"{'-' * 3}{'=' * 162}{'-' * 3}")
                 print(f"Browser: {i['browser']}\nWebsite: {i['url']}\nUsuario: {i['user']}\nSenha: {i['password']}\nCreated in: {i['created']}\nLast used: {i['lastUsed']}")
-            print(f"{'-' * 3}{'=' * 177}{'-' * 3}")
+            print(f"{'-' * 3}{'=' * 162}{'-' * 3}")
             input()
             WebPasswordsView.export(passwords)
         else:
@@ -55,26 +55,17 @@ class BrowsingVisitsHistoryView:
 
 
 class BrowsingURLsHistoryView:
-    @staticmethod
-    def list():
+    def getURLs():
         Clean()
-        urls = browsingURLsHistoryView.getURLsHistory()
-        if urls:
-            for i in urls:
-                print(f"{'-' * 3}{'=' * 177}{'-' * 3}")
-                print(f"Browser: {i['browser']}\nWebsite: {i['title']}\nLink: {i['url']}\nVisits: {i['visit_count']}\nLast Visit Time: {i['last_visit_time']}")
-            print(f"{'-' * 3}{'=' * 177}{'-' * 3}")
-            input()
-            BrowsingURLsHistoryView.export(urls)
-        else:
-            input("Nenhuma informação encontrada.")
+        URLs = browsingURLsHistoryView.getURLsHistory()
+        BrowsingURLsHistoryView.export(URLs)
     
     @staticmethod
-    def export(urls):
+    def export(URLs):
         Clean()
         exportar = inquirer.select(message="Deseja exportar essas informações?", choices=['Sim', 'Não'],).execute()
         if exportar == 'Sim':
-            browsingURLsHistoryView.export(urls)
+            browsingURLsHistoryView.export(URLs)
         Clean()
 
 

@@ -7,6 +7,7 @@ while True:
         case "BrowsingVisitsHistoryView":
             menus.BrowsingVisitsHistoryView.getVisits()
         case "BrowsingURLsHistoryView":
-            menus.BrowsingURLsHistoryView.list()
+            menus.BrowsingURLsHistoryView.getURLs()
         case "PhotoMetadataView":
             menus.PhotoMetadataView.list()
+        

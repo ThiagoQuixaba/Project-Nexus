@@ -196,7 +196,7 @@ class Export:
     @staticmethod
     def excel(data: list[dict]):
         downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
-        base_name = "browsingvisitshistoryview"
+        base_name = "browsingurlshistoryview"
         ext = ".xlsx"
         excel_path = get_unique_filename(downloads_path, base_name, ext)
 
