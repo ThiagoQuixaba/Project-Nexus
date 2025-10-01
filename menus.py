@@ -76,10 +76,10 @@ class PhotoMetadataView:
         Clean()
         metadatas = photoMetadataView.getExif()
         if metadatas:
-            print(f"{'-' * 3}{'=' * 177}{'-' * 3}")
+            print(f"{'-' * 3}{'=' * 162}{'-' * 3}")
             for i in metadatas:
                 print(f"{i['tag']}: {i['value']}")
-            print(f"{'-' * 3}{'=' * 177}{'-' * 3}")
+            print(f"{'-' * 3}{'=' * 162}{'-' * 3}")
             input()
             PhotoMetadataView.export(metadatas)
         else:

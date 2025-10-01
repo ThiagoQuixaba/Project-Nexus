@@ -62,18 +62,18 @@ class Export:
     @staticmethod
     def database(data: list[dict]):
         downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
-        base_name = "photovetadataview"
+        base_name = "photometadataview"
         ext = ".db"
         db_path = get_unique_filename(downloads_path, base_name, ext)
 
         conn = sqlite3.connect(db_path)
         cursor = conn.cursor()
 
-        cursor.execute("CREATE TABLE photovetadataview (tag TEXT, value TEXT)")
+        cursor.execute("CREATE TABLE photometadataview (tag TEXT, value TEXT)")
         conn.commit()
 
         registros = [(str(i['tag']), str(i['value'])) for i in data]
-        cursor.executemany("INSERT INTO photovetadataview (tag, value) VALUES (?, ?)", registros)
+        cursor.executemany("INSERT INTO photometadataview (tag, value) VALUES (?, ?)", registros)
 
         conn.commit()
 
@@ -83,7 +83,7 @@ class Export:
     @staticmethod
     def excel(data: list[dict]):
         downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
-        base_name = "photovetadataview"
+        base_name = "photometadataview"
         ext = ".xlsx"
         excel_path = get_unique_filename(downloads_path, base_name, ext)
 
@@ -95,7 +95,7 @@ class Export:
     @staticmethod
     def json(data: list[dict]):
         downloads_path = os.path.join(os.path.expanduser("~"), "Downloads")
-        base_name = "photovetadataview"
+        base_name = "photometadataview"
         ext = ".json"
         json_path = get_unique_filename(downloads_path, base_name, ext)
 
